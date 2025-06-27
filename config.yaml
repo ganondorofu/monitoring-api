@@ -1,0 +1,14 @@
+nextcloud:
+  url: "https://***REMOVED_DUCKDNS_URL***/"
+  username: "admin"
+  password: "Uyan3143?!"
+
+proxmox:
+  - host: "***REMOVED_PROXMOX_IP_1***"
+    username: "root@pam"
+    password: "Uyan3143?!"
+    verify_ssl: false
+  - host: "***REMOVED_PROXMOX_IP_2***"
+    username: "root@pam"
+    password: "Uyan3143?!"
+    verify_ssl: false
