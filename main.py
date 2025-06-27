@@ -2,13 +2,30 @@ from flask import Flask, jsonify
 from fetch import nextcloud_api, proxmox_api
 import yaml
 import urllib3
+import os
 from fetch import resource_history
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 app = Flask(__name__)
 
-with open('config.yaml', 'r') as f:
-    config = yaml.safe_load(f)
+# 環境変数から設定を読み込む関数
+def load_config():
+    with open('config.yaml', 'r') as f:
+        config = yaml.safe_load(f)
+    
+    # 環境変数でパスワードを上書き
+    if 'NEXTCLOUD_PASSWORD' in os.environ:
+        config['nextcloud']['password'] = os.environ['NEXTCLOUD_PASSWORD']
+    
+    if 'PROXMOX_PASSWORD_1' in os.environ:
+        config['proxmox'][0]['password'] = os.environ['PROXMOX_PASSWORD_1']
+    
+    if 'PROXMOX_PASSWORD_2' in os.environ and len(config['proxmox']) > 1:
+        config['proxmox'][1]['password'] = os.environ['PROXMOX_PASSWORD_2']
+    
+    return config
+
+config = load_config()
 
 @app.route('/metrics/nextcloud')
 def nextcloud_metrics():
