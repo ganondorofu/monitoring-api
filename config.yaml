@@ -1,15 +1,14 @@
 nextcloud:
   url: "https://***REMOVED_DUCKDNS_URL***/"
   username: "admin"
-  password: "Uyan3143?!"
+  password: "default_password"  # 環境変数 NEXTCLOUD_PASSWORD で上書き可能
 
 proxmox:
   - host: "***REMOVED_PROXMOX_IP_1***"
     username: "root@pam"
-    password: "Uyan3143?!"
+    password: "default_password"  # 環境変数 PROXMOX_PASSWORD_1 で上書き可能
     verify_ssl: false
   - host: "***REMOVED_PROXMOX_IP_2***"
     username: "root@pam"
-    password: "Uyan3143?!"
+    password: "default_password"  # 環境変数 PROXMOX_PASSWORD_2 で上書き可能
     verify_ssl: false
-1

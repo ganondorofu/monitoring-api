@@ -71,3 +71,10 @@ temp/
 # Monitoring data
 resource_history.db
 nextcloud_logs.db
+
+# Config with Environment Variables
+
+# Environment Variable Setup
+NEXTCLOUD_PASSWORD=your_nextcloud_password
+PROXMOX_PASSWORD_1=your_proxmox_node1_password
+PROXMOX_PASSWORD_2=your_proxmox_node2_password
