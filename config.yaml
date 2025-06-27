@@ -12,3 +12,4 @@ proxmox:
     username: "root@pam"
     password: "Uyan3143?!"
     verify_ssl: false
+1
